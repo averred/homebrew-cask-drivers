@@ -8,11 +8,15 @@ cask "insta360-studio" do
   homepage "https://www.insta360.com/"
 
   livecheck do
+<<<<<<< HEAD
     url "https://openapi.insta360.com/website/appDownload/getGroupApp?group=insta360-go2&X-Language=en-us"
     strategy :page_match do |page|
       match = page.match(%r{"version":"(\d+\.\d+\.\d+)","platform":"mac".+/(\d+)/([[:xdigit:]]+)/Insta360[._-]Studio[._-](\d+[._-]\d+[._-]\d+)[._-]signed\.pkg}i)
       "#{match[1]},#{match[4]}:#{match[2]}.#{match[3]}"
     end
+=======
+    skip "No version information available"
+>>>>>>> upstream/master
   end
 
   pkg "Insta360_Studio_#{version.after_comma.before_colon}_signed.pkg"
